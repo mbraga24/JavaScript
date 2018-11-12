@@ -1,4 +1,7 @@
-//==================VARIABLE==================
+/*
+OBJECTIVE
+A hardcoded question will be displayed, then our program will output a random fortune.
+*/
 
 // Dinamic user assignment variable
 let userName = 'Marlon';
@@ -8,8 +11,6 @@ let userQuestion = 'Will I soon get my first tech job?';
 let randomNumber = Math.floor(Math.random() * 8);
 // Will hold a value depending on the value of randomNumber
 let eightBall = '';
-
-//=====================END=====================
 
 // Ternary operator to check user's authenticity
 userName ? console.log(`Hello, ${userName}!`) :
@@ -21,32 +22,32 @@ console.log(`You asked: ${userQuestion}, right?`);
 // control flow that takes in a random number and then will assign the Eight Ball a value depending on the value of the randomNumber
 switch(randomNumber) {
   case 0:
-		  	eightBall = 'It is certain.';
-	  		break;
+    eightBall = 'It is certain.';
+    break;
   case 1:
-        eightBall = 'It is decidedly so.';
-        break;
+    eightBall = 'It is decidedly so.';
+    break;
 	case 2:
-        eightBall = 'Reply hazy try again.';
-        break;
+    eightBall = 'Reply hazy try again.';
+    break;
 	case 3:
-				eightBall = 'Cannot predict now.';
-        break;
+		eightBall = 'Cannot predict now.';
+    break;
 	case 4:
-        eightBall = 'Do not count on it.';
-				break;
+    eightBall = 'Do not count on it.';
+		break;
 	case 5:
-         eightBall = 'My sources say no';
-         break;
+    eightBall = 'My sources say no';
+    break;
 	case 6:
-         eightBall = 'Outlook not so good';
-         break;
+    eightBall = 'Outlook not so good';
+    break;
 	case 7:
-         eightBall = 'Signs point to yes.';
-         break;
+    eightBall = 'Signs point to yes.';
+    break;
   default:
-    		 eightBall = 'I\'m not feeling well today!';
-    		 break;
+    eightBall = 'I\'m not feeling well today!';
+    break;
 }
 
 // Prints out the value of the magic eight ball variable
