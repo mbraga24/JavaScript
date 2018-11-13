@@ -1,5 +1,5 @@
 /*
-OBJECTIVE
+DESCRIPTION / OBJECTIVE
 A hardcoded question will be displayed, then our program will output a random fortune.
 */
 
@@ -7,7 +7,11 @@ A hardcoded question will be displayed, then our program will output a random fo
 let userName = 'Marlon';
 // Question asked
 let userQuestion = 'Will I soon get my first tech job?';
-// Math.random() Returns a value between 0 and 1. Multiplying the returned value by 8 will make this set of numbers range from 0 to 8. To ensure only whole numbers from 0 to 7 we can round down using Math.floor()
+// Math.random() Returns a value between 0 and 1.
+// Multiplying the returned value by 8 will make
+// this set of numbers range from 0 to 8.
+// To ensure only whole numbers from 0 to 7
+// we can round down using Math.floor()
 let randomNumber = Math.floor(Math.random() * 8);
 // Will hold a value depending on the value of randomNumber
 let eightBall = '';

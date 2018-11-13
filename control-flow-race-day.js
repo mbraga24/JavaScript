@@ -1,7 +1,6 @@
 /*
-OBJECTIVE
+DESCRIPTION / OBJECTIVE
 
-Registration Process:
 There are adult runners (over 18 years of age) and youth runners (under 18 years of age). They can register early or late. Runners are assigned a race number and start time based on their age and registration.
 Race number:
 
@@ -26,7 +25,10 @@ Late adults run at 11:00 am.
 Youth registrants run at 12:30 pm (regardless of registration).
 */
 
-// Math.random() returns a value between 0 and 1. Multiplying the returned value by 1000 will make this set of numbers range from 0 to 1000. Math.floor() will ensure only whole numbers from 0 to 999.
+// Math.random() returns a value between 0 and 1.
+// Multiplying the returned value by 1000 will make
+// this set of numbers range from 0 to 1000. 
+// Math.floor() will ensure only whole numbers from 0 to 999.
 let raceNumber = Math.floor(Math.random() * 1000);
 
 let registeredEarly = true;
