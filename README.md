@@ -3,7 +3,7 @@ For GitHub and Javascript practice: I decided to push all the problems, workshop
 
 # JavaScript Review
 
-Helper Functions
-Function Expressions
-Arrow Functions
-Concise Body Arrow Functions
+* Helper Functions
+* Function Expressions
+* Arrow Functions
+* Concise Body Arrow Functions
