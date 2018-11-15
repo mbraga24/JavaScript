@@ -1,5 +1,6 @@
+#### _All the the information below, as well as practice exercise and projects (code) shared in this repository were extracted from_ [Code Academy](https://www.codecademy.com/)
+
 # Practice-JS
-For GitHub and Javascript practice: I decided to push all the problems, workshops and small projects in JavaScript. I'm aiming for the best practices in code cleanness, readability and efficiency.
 
 ## JavaScript Review Practice
 
