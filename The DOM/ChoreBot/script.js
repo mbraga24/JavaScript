@@ -12,7 +12,7 @@ let openDoor2;
 let openDoor3;
 let closedDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg";
 let startButton = document.getElementById("start");
-let currentlyPlaying = 'true';
+let currentlyPlaying = true;
 
 // functions
 
@@ -65,22 +65,35 @@ let choreDoor = Math.floor(Math.random() * numClosedDoors);
 //onclick functions
 
 door1.onclick = () => {
-  if (!isClicked(doorImage1)) {
+  if ((currentlyPlaying === true) && (!isClicked(doorImage1))) {
   	doorImage1.src = openDoor1;
   	playDoor(door1);
   }
 }
 door2.onclick = () => {
-  if (!isClicked(doorImage2)) {
+  if ((currentlyPlaying === true) && (!isClicked(doorImage2))) {
   	doorImage2.src = openDoor2;
   	playDoor(door2);
   }
 }
 door3.onclick = () => {
-  if (!isClicked(doorImage3)) {
+  if ((currentlyPlaying === true) && (!isClicked(doorImage3))) {
   	doorImage3.src = openDoor3;
   	playDoor(door3);
   }
+}
+
+const startRound = () => {
+  doorImage1 = closedDoorPath;
+	doorImage2 = closedDoorPath;
+	doorImage3 = closedDoorPath;
+  numClosedDoors = 3;
+  startButton.innerHTML = "Good luck!";
+  currentlyPlaying = true;
+}
+
+startButton.onclick = () => {
+  startRound();
 }
 
 const gameOver = (status) => {
@@ -90,6 +103,7 @@ const gameOver = (status) => {
   } else {
     startButton.innerHTML = "Game Over! Play again?";
   }
+  currentlyPlaying = false;
 }
 
 randomChoreDoorGenerator();
