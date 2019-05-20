@@ -3,13 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="main.js" defer></script> -->
     <title>Javascript and the DOM</title>
   </head>
   <body>
     <h1 id="title">Todo Tracker</h1>
     <form action="index.html" method="post">
-      <input type="text" value="" placeholder="New Todo"/>
+      <input id="user-todo" type="text" value="" placeholder="New Todo"/>
     </form>
     <h2 id="todo-header"></h2>
     <ul>
@@ -20,16 +19,15 @@
     <button id="clearButton" type="button" name="button">Clear All</button>
 
     <!-- DOM PRACTICE -->
+
+    <!-- The code below was done for practice purposes like most of the code in this Repo.
+    I am no attempting to display any organization since this was intended to be only
+    a practice project. -->
     <script>
 
       // let todoHeader = document.getElementById("todo-header");
       // let title = document.querySelector("#title");
       // let listItemPractice = document.querySelector(".todos");
-      //
-      // appendChild()
-      // removeChild()
-      // CreateElement()
-      // firstChild()
 
       let todo1 = document.createElement("li");
       todo1.textContent = "Drink two glasses of water.";
@@ -53,16 +51,19 @@
       todos.appendChild(todo3);
       todos.appendChild(todo4);
 
+      todos.removeChild(todo5);
       todos.removeChild(todos.firstChild);
 
+      /*
       while(todos.firstChild) {
         todos.removeChild(todos.firstChild)
       }
+      */
 
       let  button = document.querySelector("#clearButton");
 
       button.addEventListener("click", () => {
-        alert("I was clicked!")
+        console.log("I was clicked!")
       });
 
       button.addEventListener("mouseover", () => {
@@ -76,6 +77,22 @@
       button.addEventListener("dblclick", () => {
         alert("Daarn it! You really wanted to click me, huh?!")
       });
+
+      let formField = document.querySelector("form");
+      let inputField = document.querySelector("#user-todo");
+
+      // formField.addEventListener("submit", (event) => {
+      // 	event.preventDefault()
+      // 	console.log("Form has been submitted")
+      // });
+
+      formField.addEventListener("submit", (event) => {
+        event.preventDefault();
+        console.log(inputField.value)
+      });
+
+
+
 
     </script>
 
