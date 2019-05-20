@@ -65,6 +65,17 @@
         alert("I was clicked!")
       });
 
+      button.addEventListener("mouseover", () => {
+        console.log("I've beeb quietly hovered.")
+      });
+
+      button.addEventListener("mouseout", () => {
+        console.log("The mouse just left me.")
+      });
+
+      button.addEvenetListener("dblclick", () => {
+        alert("Daarn it! You really wanted to click me, huh?!")
+      });
 
     </script>
 
