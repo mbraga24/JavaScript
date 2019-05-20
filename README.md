@@ -1,10 +1,3 @@
-#### _All the the information below, as well as practice exercise and projects (code) shared in this repository were extracted from_ [Code Academy](https://www.codecademy.com/)
-
-# Practice-JS
+#### _All the the information below, as well as practice exercise and projects shared in this repository were inspired by_ [Code Academy](https://www.codecademy.com/)
 
 ## JavaScript Review Practice
-
-* Helper Functions
-* Function Expressions
-* Arrow Functions
-* Concise Body Arrow Functions
