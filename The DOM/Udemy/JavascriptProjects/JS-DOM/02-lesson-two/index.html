@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="main.js" defer></script> -->
+    <title>Javascript and the DOM</title>
+  </head>
+  <body>
+    <h1 id="title">Todo Tracker</h1>
+    <form action="index.html" method="post">
+      <input type="text" value="" placeholder="New Todo"/>
+    </form>
+    <h2 id="todo-header"></h2>
+    <ul>
+      <li class="todos">Wake up!</li>
+      <!-- <li class="todos">List Item 2</li>
+      <li class="todos">List Item 3</li> -->
+    </ul>
+    <button id="clearButton" type="button" name="button">Clear All</button>
+
+    <!-- DOM PRACTICE -->
+    <script>
+
+      // let todoHeader = document.getElementById("todo-header");
+      // let title = document.querySelector("#title");
+      // let listItemPractice = document.querySelector(".todos");
+      //
+      // appendChild()
+      // removeChild()
+      // CreateElement()
+      // firstChild()
+
+      let todo1 = document.createElement("li");
+      todo1.textContent = "Drink two glasses of water.";
+
+      let todo2 = document.createElement("li");
+      todo2.textContent = "Have breakfast.";
+
+      let todo3 = document.createElement("li");
+      todo3.textContent = "Plan study schedule for the day.";
+
+      let todo4 = document.createElement("li");
+      todo4.textContent = "Conquer the WORLD!!!";
+
+      let todo5 = document.createElement("li");
+      todo5.textContent = "Be lazy and do nothing!";
+
+      let todos = document.querySelector("ul");
+      todos.appendChild(todo1);
+      todos.appendChild(todo2);
+      todos.appendChild(todo5);
+      todos.appendChild(todo3);
+      todos.appendChild(todo4);
+
+      todos.removeChild(todos.firstChild);
+
+      while(todos.firstChild) {
+        todos.removeChild(todos.firstChild)
+      }
+
+    </script>
+
+  </body>
+</html>
