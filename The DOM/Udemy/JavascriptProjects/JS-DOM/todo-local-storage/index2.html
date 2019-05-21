@@ -20,6 +20,9 @@
 
   <button id="clear">Clear All</button>
 
+  <!-- localStorage -> Web storage that stores data with no expiration date. -->
+  <!-- localStorage METHODS -> setItem(), getItem(), removeItem(), clear() -->
+
   <script>
     let form = document.querySelector("form");
     let todoList = document.querySelector("ul");
@@ -28,13 +31,20 @@
 
     // Declare variable 'todosArray'to hold our todos.
     // set our 'todosArray' to an empty array.
-    let todosArray = [];
+    // We want to ask if there are already `todos` in localStorage. If so, then we will get
+    // those `todos` using JSON.parse. If local storage does not have any `todos` then we will
+    // set our `todosArray` to an empty array.
+    // var todosArray = [];
+
+
+    let todosArray = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
+
 
     // Use localStorage setItem() method to set 'todos' to a string with 'JSON.stringify()'
-    //   JSON.stringify() it's used because localStorage works with strings. this is how we
+    //   JSON.stringify() is used because localStorage works with strings. this is how we
     //   send data to the localStorage.
 
-
+    localStorage.setItem('todos', JSON.stringify(todosArray));
 
       // Declare a variable 'storage' that contains all the information in localStorage.
       //   We will assign to 'storage' JSON.parse() method that converts strings from
@@ -42,13 +52,19 @@
       //    When receiving data from a web server, the data is always a string.
       //    Parse the data with JSON.parse(), and the data becomes a JavaScript object.
 
+    let storage = JSON.parse(localStorage.getItem('todos'));
+
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      todoMaker(input.value)
+      // push onto 'todosArray' the input.value.
+      todosArray.push(input.value);
+
+      // on localStorage now use 'setItem()' for the key 'todos' the value
+      // of the todosArray as a string with the JSON.stringify() method.
+      localStorage.setItem('todos', JSON.stringify(todosArray));
+      todoMaker(input.value);
       input.value = "";
     })
-
-
 
     function todoMaker(inputValue) {
       let item = document.createElement("li");
@@ -56,12 +72,17 @@
       todoList.appendChild(item);
     }
 
+    // Loop through localStorage when a user first opens a page and run the todoMaker function.
+    storage.map((todoItem) => {
+      todoMaker(todoItem);
+    })
 
-
-      button.addEventListener("click", () => {
-          while(todoList.firstChild) {
-            todoList.removeChild(todoList.firstChild)
-          }
-      })
+    button.addEventListener("click", () => {
+        // Clear the localStorage with the clear() method.
+        localStorage.clear();
+        while(todoList.firstChild) {
+          todoList.removeChild(todoList.firstChild);
+        }
+    })
 
       </script>
