@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TodoTracker</title>
+</head>
+<body>
+  <h1 id="title">Todo Tracker</h1>
+
+  <form>
+    <input type="text" id="user-todo" placeholder="New Todo" required>
+  </form>
+
+  <h2 id="todo-header">Todos</h2>
+  <ul>
+
+  </ul>
+
+  <button id="clear">Clear All</button>
+
+  <script>
+    let form = document.querySelector("form");
+    let todoList = document.querySelector("ul");
+    let input = document.getElementById("user-todo");
+    let button = document.getElementById("clear");
+
+    // Declare variable 'todosArray'to hold our todos.
+    // set our 'todosArray' to an empty array.
+    let todosArray = [];
+
+    // Use localStorage setItem() method to set 'todos' to a string with 'JSON.stringify()'
+    //   JSON.stringify() it's used because localStorage works with strings. this is how we
+    //   send data to the localStorage.
+
+
+
+      // Declare a variable 'storage' that contains all the information in localStorage.
+      //   We will assign to 'storage' JSON.parse() method that converts strings from
+      //   local storage to data we can access with JavaScript.
+      //    When receiving data from a web server, the data is always a string.
+      //    Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      todoMaker(input.value)
+      input.value = "";
+    })
+
+
+
+    function todoMaker(inputValue) {
+      let item = document.createElement("li");
+      item.textContent = inputValue;
+      todoList.appendChild(item);
+    }
+
+
+
+      button.addEventListener("click", () => {
+          while(todoList.firstChild) {
+            todoList.removeChild(todoList.firstChild)
+          }
+      })
+
+      </script>
