@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TodoTracker</title>
-</head>
-<body>
-  <h1 id="title">Todo Tracker</h1>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo List</title>
+  </head>
+  <body>
+    <h1 id="title">Todo List</h1>
 
-  <form>
-    <input type="text" id="user-todo" placeholder="New Todo" required>
-  </form>
+    <form>
+      <input type="text" id="user-todo" placeholder="New Todo" required>
+    </form>
 
-  <h2 id="todo-header">Todos</h2>
-  <ul>
+    <h2 id="todo-header">Todos</h2>
+    <ul>
 
-  </ul>
+    </ul>
 
-  <button id="clear">Clear All</button>
+    <button id="clear">Clear All</button>
 
-  <script>
-    // Step 1 -> create variables `form`, `todoList`, `button`, `input`
-    // to target the form, unordered list, button and input.
-    let form = document.querySelector("form");
-    let todoList = document.querySelector("ul");
-    let input = document.getElementById("user-todo");
-    let button = document.getElementById("clear");
+    <script>
+      // Step 1 -> create variables `form`, `todoList`, `button`, `input`
+      // to target the form, unordered list, button and input.
+      let form = document.querySelector("form");
+      let todoList = document.querySelector("ul");
+      let input = document.getElementById("user-todo");
+      let button = document.getElementById("clear");
 
 
-    // Step 2 -> attach an event listener to the `form` variable with `addEventListener`
-    // to capture the user input on the `submit` event.
-    // Make sure to run `preventDefault()` on the event when the form is submitted.
-    // Call a `todoMaker` function which we will create in step three and pass to it
-    // the `input` variable and target the value the user has provide with `input.value`.
-    // Finally, set the `input.value` to an empty string.
+      // Step 2 -> attach an event listener to the `form` variable with `addEventListener`
+      // to capture the user input on the `submit` event.
+      // Make sure to run `preventDefault()` on the event when the form is submitted.
+      // Call a `todoMaker` function which we will create in step three and pass to it
+      // the `input` variable and target the value the user has provide with `input.value`.
+      // Finally, set the `input.value` to an empty string.
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      todoMaker(input.value)
-      input.value = "";
-    })
-
-    // Step 3 -> create a todoMaker function that creates 'li' elements with the text user provides
-    // from their form and appends it to the 'ul'.
-
-    function todoMaker(inputValue) {
-      let item = document.createElement("li");
-      item.textContent = inputValue;
-      todoList.appendChild(item);
-    }
-
-    // Step 4 -> attach an event listener to the `clear all` button listening for
-    // a user click.
-    // In the function use a while loop checking to see whether there
-      // is an li element as a child of the `ul` tag. In the code block use the
-      // removeChild() DOM method to remove that `li` using the firstChild property.
-
-      button.addEventListener("click", () => {
-          while(todoList.firstChild) {
-            todoList.removeChild(todoList.firstChild)
-          }
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        todoMaker(input.value)
+        input.value = "";
       })
 
-      </script>
+      // Step 3 -> create a todoMaker function that creates 'li' elements with the text user provides
+      // from their form and appends it to the 'ul'.
+
+      function todoMaker(inputValue) {
+        let item = document.createElement("li");
+        item.textContent = inputValue;
+        todoList.appendChild(item);
+      }
+
+      // Step 4 -> attach an event listener to the `clear all` button listening for
+      // a user click.
+      // In the function use a while loop checking to see whether there
+        // is an li element as a child of the `ul` tag. In the code block use the
+        // removeChild() DOM method to remove that `li` using the firstChild property.
+
+        button.addEventListener("click", () => {
+            while(todoList.firstChild) {
+              todoList.removeChild(todoList.firstChild)
+            }
+        })
+
+        </script>
+
+  </body>
+</html>

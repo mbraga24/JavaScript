@@ -1,148 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TodoTracker</title>
-  <style>
-    body {
-      padding: 15px;
-      background-color: #0D3658;
-      family-font: "sans-serif";
-      color: #E5EAEF ;
-    }
-    #title {
-      font-size: 36px;
-      text-align: center;
-      width: 800px;
-      margin: 0 auto;
-      border: 2px dotted #fff;
-      border-radius: 16px;
-      padding: 10px;
-      width: 250px;
-      padding: 10px;
-      margin-bottom: 15px;
-    }
-    #todo-header {
-      font-size: 24px;
-      text-align: center;
-      width: 800px;
-      margin: 0 auto;
-      padding: 10px;
-    }
-    form {
-      position: relative;
-      width: 800px;
-      margin: 0 auto;
-    }
-    #user-todo {
-      margin-left: 200px;
-      width: 400px;
-      height: 50px;
-    }
-    ul {
-      list-style: none;
-      padding: 12px;
-      width: 250px;
-      font-size: 19px;
-      margin: 0 auto;
-    }
-    li {
-      padding: 15px;
-      border-radius: 7px;
-      margin-left: 15px;
-      margin-bottom: 5px;
-      border: 2px dotted #fff;
-    }
-    button {
-      position: absolute;
-      z-index: 1;
-      right: 416px;
-      top: 158px;
-      font-size: 12px;
-      font-weight: bold;
-      height: 40px;
-      width: 70px;
-      border-radius: 10px;
-    }
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo List</title>
+    <style>
+      body {
+        padding: 15px;
+        background-color: #0D3658;
+        family-font: "sans-serif";
+        color: #E5EAEF ;
+      }
+      #title {
+        font-size: 36px;
+        text-align: center;
+        width: 800px;
+        margin: 0 auto;
+        border: 2px dotted #fff;
+        border-radius: 16px;
+        padding: 10px;
+        width: 250px;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+      #todo-header {
+        font-size: 24px;
+        text-align: center;
+        width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      form {
+        position: relative;
+        width: 800px;
+        margin: 0 auto;
+      }
+      #user-todo {
+        margin-left: 200px;
+        width: 400px;
+        height: 50px;
+      }
+      ul {
+        list-style: none;
+        padding: 12px;
+        width: 250px;
+        font-size: 19px;
+        margin: 0 auto;
+      }
+      li {
+        padding: 15px;
+        border-radius: 7px;
+        margin-left: 15px;
+        margin-bottom: 5px;
+        border: 2px dotted #fff;
+      }
+      button {
+        position: absolute;
+        z-index: 1;
+        right: 428px;
+        top: 200px;
+        font-size: 12px;
+        font-weight: bold;
+        height: 40px;
+        width: 70px;
+        border-radius: 10px;
+      }
 
-  </style>
-</head>
-<body>
-  <h1 id="title">Todo Tracker Example</h1>
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Todo List Example</h1>
 
-  <h2 id="todo-header">Todos</h2>
-  <button id="clear">Clear All</button>
-  <form>
-    <input type="text" id="user-todo" placeholder="New Todo" required>
-  </form>
-    <ul id="containerList">
+    <h2 id="todo-header">Todos</h2>
+    <button id="clear">Clear All</button>
+    <form>
+      <input type="text" id="user-todo" placeholder="New Todo" required>
+    </form>
+      <ul id="containerList">
 
-    </ul>
+      </ul>
 
-  <!-- localStorage -> Web storage that stores data with no expiration date. -->
-  <!-- localStorage METHODS -> setItem(), getItem(), removeItem(), clear() -->
+    <!-- localStorage -> Web storage that stores data with no expiration date. -->
+    <!-- localStorage METHODS -> setItem(), getItem(), removeItem(), clear() -->
 
-  <script>
-    let form = document.querySelector("form");
-    let todoList = document.getElementById("containerList");
-    let input = document.getElementById("user-todo");
-    let button = document.getElementById("clear");
+    <script>
+      let form = document.querySelector("form");
+      let todoList = document.getElementById("containerList");
+      let input = document.getElementById("user-todo");
+      let button = document.getElementById("clear");
 
-    // Declare variable 'todosArray'to hold our todos.
-    // set our 'todosArray' to an empty array.
-    // We want to ask if there are already `todos` in localStorage. If so, then we will get
-    // those `todos` using JSON.parse. If local storage does not have any `todos` then we will
-    // set our `todosArray` to an empty array.
-    // var todosArray = [];
+      // Declare variable 'todosArray'to hold our todos.
+      // set our 'todosArray' to an empty array.
+      // We want to ask if there are already `todos` in localStorage. If so, then we will get
+      // those `todos` using JSON.parse. If local storage does not have any `todos` then we will
+      // set our `todosArray` to an empty array.
+      // var todosArray = [];
 
-    let todosArray = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
+      let todosArray = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
 
 
-    // Use localStorage setItem() method to set 'todos' to a string with 'JSON.stringify()'
-    //   JSON.stringify() is used because localStorage works with strings. this is how we
-    //   send data to the localStorage.
+      // Use localStorage setItem() method to set 'todos' to a string with 'JSON.stringify()'
+      //   JSON.stringify() is used because localStorage works with strings. this is how we
+      //   send data to the localStorage.
 
-    localStorage.setItem('todos', JSON.stringify(todosArray));
-
-      // Declare a variable 'storage' that contains all the information in localStorage.
-      //   We will assign to 'storage' JSON.parse() method that converts strings from
-      //   local storage to data we can access with JavaScript.
-      //    When receiving data from a web server, the data is always a string.
-      //    Parse the data with JSON.parse(), and the data becomes a JavaScript object.
-
-    let storage = JSON.parse(localStorage.getItem('todos'));
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      // push onto 'todosArray' the input.value.
-      todosArray.push(input.value);
-
-      // on localStorage now use 'setItem()' for the key 'todos' the value
-      // of the todosArray as a string with the JSON.stringify() method.
       localStorage.setItem('todos', JSON.stringify(todosArray));
-      todoMaker(input.value);
-      input.value = "";
-    })
 
-    function todoMaker(inputValue) {
-      let item = document.createElement("li");
-      item.textContent = inputValue;
-      todoList.appendChild(item);
-    }
+        // Declare a variable 'storage' that contains all the information in localStorage.
+        //   We will assign to 'storage' JSON.parse() method that converts strings from
+        //   local storage to data we can access with JavaScript.
+        //    When receiving data from a web server, the data is always a string.
+        //    Parse the data with JSON.parse(), and the data becomes a JavaScript object.
 
-    // Loop through localStorage when a user first opens a page and run the todoMaker function.
-    storage.map((todoItem) => {
-      todoMaker(todoItem);
-    })
+      let storage = JSON.parse(localStorage.getItem('todos'));
 
-    button.addEventListener("click", () => {
-        // Clear the localStorage with the clear() method.
-        localStorage.clear();
-        while(todoList.firstChild) {
-          todoList.removeChild(todoList.firstChild);
-        }
-    })
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        // push onto 'todosArray' the input.value.
+        todosArray.push(input.value);
 
-      </script>
+        // on localStorage now use 'setItem()' for the key 'todos' the value
+        // of the todosArray as a string with the JSON.stringify() method.
+        localStorage.setItem('todos', JSON.stringify(todosArray));
+        todoMaker(input.value);
+        input.value = "";
+      })
+
+      function todoMaker(inputValue) {
+        let item = document.createElement("li");
+        item.textContent = inputValue;
+        todoList.appendChild(item);
+      }
+
+      // Loop through localStorage when a user first opens a page and run the todoMaker function.
+      storage.map((todoItem) => {
+        todoMaker(todoItem);
+      })
+
+      button.addEventListener("click", () => {
+          // Clear the localStorage with the clear() method.
+          localStorage.clear();
+          while(todoList.firstChild) {
+            todoList.removeChild(todoList.firstChild);
+          }
+      })
+
+        </script>
+  </body>
+</html>
