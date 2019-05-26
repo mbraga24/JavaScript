@@ -25,3 +25,21 @@ let grid = document.createElement('section');
 
 // Append the grid section to the game-board div.
 game.appendChild(grid);
+
+// Loop through each item in our cards array.
+cardsArray.forEach((element, index) => {
+  // Create a div element and assign it to a variable card.
+  let card = document.createElement('div');
+  // Apply a card class to that div.
+  card.classList.add('card');
+  // Set the data-name attribute of the div to the cardsArray name.
+  card.dataset.name = element.name;
+  // Apply the background image of the div to the cardsArray image.
+  card.style.backgroundImage = `url(${element.img})`;
+  // Append the div to the grid section.
+  grid.appendChild(card);
+});
+
+// .classList
+// .dataset.name
+// .backgroundImage = `url(${IMAGE})`
