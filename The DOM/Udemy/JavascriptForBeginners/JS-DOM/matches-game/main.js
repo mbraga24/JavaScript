@@ -1,20 +1,25 @@
 var cardsArray = [
-  {    'name': 'CSS',    'img': 'https://github.com/robgmerrill/img/blob/master/css3-logo.png?raw=true',  },
-  {    'name': 'HTML',    'img': 'https://github.com/robgmerrill/img/blob/master/html5-logo.png?raw=true',  },
-  {    'name': 'jQuery',    'img': 'https://github.com/robgmerrill/img/blob/master/jquery-logo.png?raw=true',  },
-  {    'name': 'JS',    'img': 'https://github.com/robgmerrill/img/blob/master/js-logo.png?raw=true',  },
-  {    'name': 'Node',    'img': 'https://github.com/robgmerrill/img/blob/master/nodejs-logo.png?raw=true',  },
-  {    'name': 'Photo Shop',    'img': 'https://github.com/robgmerrill/img/blob/master/photoshop-logo.png?raw=true',  },
-  {    'name': 'PHP',    'img': 'https://github.com/robgmerrill/img/blob/master/php-logo_1.png?raw=true',  },
-  {    'name': 'Python',    'img': 'https://github.com/robgmerrill/img/blob/master/python-logo.png?raw=true',  },
-  {    'name': 'Ruby',    'img': 'https://github.com/robgmerrill/img/blob/master/rails-logo.png?raw=true',  },
-  {    'name': 'Sass',    'img': 'https://github.com/robgmerrill/img/blob/master/sass-logo.png?raw=true',  },
-  {    'name': 'Sublime',    'img': 'https://github.com/robgmerrill/img/blob/master/sublime-logo.png?raw=true',  },
-  {    'name': 'Wordpress',    'img': 'https://github.com/robgmerrill/img/blob/master/wordpress-logo.png?raw=true',  },
+  {    'name': 'CSS',    'img': './images/bukowski.jpg',  },
+  {    'name': 'HTML',    'img': './images/claude_monet.jpeg',  },
+  {    'name': 'jQuery',    'img': './images/davinci.jpg',  },
+  {    'name': 'JS',    'img': './images/walt_whitman.jpg', },
+  {    'name': 'Node',    'img': './images/vincent_van_gogh.jpg',  },
+  {    'name': 'Photo Shop',    'img': './images/vladimir_nabokov.jpg',  },
+  {    'name': 'PHP',    'img': './images/salvador_dali.jpeg',  },
+  {    'name': 'Python',    'img': './images/rembrandt_van_rijn.jpg',  },
+  {    'name': 'Ruby',    'img': './images/pablo_picasso.jpg', },
+  {    'name': 'Sass',    'img': './images/michelangelo.jpg',  },
+  {    'name': 'Sublime',    'img': './images/frida_kahlo.jpg',  },
+  {    'name': 'Wordpress',    'img': './images/andy_warhol.jpg',  },
 ];
 
 // Duplicate cardsArray to create a match for each card.
 let gameGrid = cardsArray.concat(cardsArray);
+
+// Randomize gameGrid on each load.
+gameGrid.sort(function() {
+  return 0.5 - Math.random();
+})
 
 // Grab the div with an id of game-board and assign to a variable game.
 let game = document.getElementById('game-board');
@@ -31,6 +36,8 @@ game.appendChild(grid);
 
 // Loop through each item in our cards array.
 gameGrid.forEach((element, index) => {
+  console.log(element.img)
+
   // Create a div element and assign it to a variable card.
   let card = document.createElement('div');
   // Apply a card class to that div.
