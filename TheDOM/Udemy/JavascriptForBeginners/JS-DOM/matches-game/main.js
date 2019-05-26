@@ -42,17 +42,26 @@ gameGrid.forEach((element, index) => {
   card.classList.add('card');
   // Set the data-name attribute of the div to the cardsArray name.
   card.dataset.name = element.name;
-  // Apply the background image of the div to the cardsArray image.
-  card.style.backgroundImage = `url(${element.img})`;
-  // Append the div to the grid section.
+  // Create front of card.
+  let front = document.createElement('div');
+  front.classList.add('front');
+  // Create back of card.
+  let back = document.createElement('div');
+  back.classList.add('back');
+  back.style.backgroundImage = `url(${element.img})`;
+
+  // Append card to grid.
   grid.appendChild(card);
+  card.appendChild(front);
+  card.appendChild(back);
+
 });
 
 let firstGuess = '';
 let secondGuess = '';
 let previousSelected = null;
-// Set count to 0
 let count = 0;
+let delay = 1200;
 
 // match function
 function match() {
@@ -72,7 +81,7 @@ function resetGuesses() {
   previousSelected = null;
 
   let selected = document.querySelectorAll('.selected');
-  
+
   selected.forEach((element) => {
     element.classList.remove('selected');
   });
@@ -96,12 +105,12 @@ grid.addEventListener('click', (event) => {
 
       if (count === 1) {
         // Asssing first guess.
-        firstGuess = clicked.dataset.name;
-        clicked.classList.add('selected');
+        firstGuess = clicked.parentNode.dataset.name;
+        clicked.parentNode.classList.add('selected');
       } else {
         // Asssing second guess.
-        secondGuess = clicked.dataset.name;
-        clicked.classList.add('selected');
+        secondGuess = clicked.parentNode.dataset.name;
+        clicked.parentNode.classList.add('selected');
       }
 
       // If both guesses are not empty.
@@ -109,10 +118,10 @@ grid.addEventListener('click', (event) => {
         // And the first guess matches the second guess.
         if (firstGuess === secondGuess) {
           // Run the match function.
-          match();
-          resetGuesses();
+          setTimeout(match, delay);
+          setTimeout(resetGuesses, delay);
         } else {
-          resetGuesses();
+          setTimeout(resetGuesses, delay);
         }
       }
       previousSelected = clicked;
