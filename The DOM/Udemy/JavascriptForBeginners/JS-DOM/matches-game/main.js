@@ -13,6 +13,9 @@ var cardsArray = [
   {    'name': 'Wordpress',    'img': 'https://github.com/robgmerrill/img/blob/master/wordpress-logo.png?raw=true',  },
 ];
 
+// Duplicate cardsArray to create a match for each card.
+let gameGrid = cardsArray.concat(cardsArray);
+
 // Grab the div with an id of game-board and assign to a variable game.
 let game = document.getElementById('game-board');
 
@@ -27,7 +30,7 @@ let grid = document.createElement('section');
 game.appendChild(grid);
 
 // Loop through each item in our cards array.
-cardsArray.forEach((element, index) => {
+gameGrid.forEach((element, index) => {
   // Create a div element and assign it to a variable card.
   let card = document.createElement('div');
   // Apply a card class to that div.
