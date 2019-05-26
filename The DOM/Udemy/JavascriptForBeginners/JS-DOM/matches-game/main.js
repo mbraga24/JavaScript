@@ -36,8 +36,6 @@ game.appendChild(grid);
 
 // Loop through each item in our cards array.
 gameGrid.forEach((element, index) => {
-  console.log(element.img)
-
   // Create a div element and assign it to a variable card.
   let card = document.createElement('div');
   // Apply a card class to that div.
@@ -50,6 +48,22 @@ gameGrid.forEach((element, index) => {
   grid.appendChild(card);
 });
 
+// Add event listener to grid
+grid.addEventListener('click', (event) =>{
+    // Declare variable to target our clicked item.
+    let clicked = event.target;
+
+    // Do not allow the grid section itself o be selected,
+    // only select divs inside the the grid.
+    if (clicked.nodeName === "SECTION") {
+      return;
+    }
+
+    // Add selected class.
+    clicked.classList.add('selected');
+
+})
 // .classList
 // .dataset.name
 // .backgroundImage = `url(${IMAGE})`
+// nodeName OR tagName
