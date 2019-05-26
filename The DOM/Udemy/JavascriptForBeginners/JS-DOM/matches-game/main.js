@@ -48,28 +48,56 @@ gameGrid.forEach((element, index) => {
   grid.appendChild(card);
 });
 
+let firstGuess = '';
+let secondGuess = '';
 // Set count to 0
 let count = 0;
+let previousSelected = null;
 
-// Add event listener to grid
-grid.addEventListener('click', (event) =>{
+function match() {
+  let selected = document.querySelectorAll('.selected');
+
+  selected.forEach((element, index) => {
+    element.classList.add('match');
+  });
+}
+
+// Add event listener to grid.
+grid.addEventListener('click', (event) => {
     // Declare variable to target our clicked item.
     let clicked = event.target;
 
     // Do not allow the grid section itself o be selected,
     // only select divs inside the the grid.
-    if (clicked.nodeName === "SECTION") {
+    if (clicked.nodeName === "SECTION" || clicked === previousSelected || clicked.parentNode.classList.contains('match') || clicked.parentNode.classList.contains('selected')) {
       return;
     }
-    // We only want to add 'selected' class if the current count is less than 2
+    // We only want to add 'selected' class if the current count is less than 2.
     if (count < 2) {
-      // Increment count by 1
+      // Increment count by 1.
       count++;
 
-      // Add selected class.
-      clicked.classList.add('selected');
+      if (count === 1) {
+        // Asssing first guess.
+        firstGuess = clicked.dataset.name;
+        clicked.classList.add('selected');
+        console.log("once again")
+      } else {
+        // Asssing second guess.
+        secondGuess = clicked.dataset.name;
+        clicked.classList.add('selected');
+      }
 
+      // If both guesses are not empty.
+      if (firstGuess != '' && secondGuess != '') {
+        // And the first guess matches the second guess.
+        if (firstGuess === secondGuess) {
+          // Run the match function.
+          match();
+        }
+      }
     }
+    previousSelected = clicked;
 })
 // .classList
 // .dataset.name
