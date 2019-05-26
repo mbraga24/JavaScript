@@ -50,17 +50,34 @@ gameGrid.forEach((element, index) => {
 
 let firstGuess = '';
 let secondGuess = '';
+let previousSelected = null;
 // Set count to 0
 let count = 0;
-let previousSelected = null;
 
+// match function
 function match() {
   let selected = document.querySelectorAll('.selected');
 
+  // loop through the array like object containing 'selected' class.
   selected.forEach((element, index) => {
     element.classList.add('match');
   });
 }
+
+// Reset guesses after two attempts.
+function resetGuesses() {
+  firstGuess = '';
+  secondGuess = '';
+  count = 0;
+  previousSelected = null;
+
+  let selected = document.querySelectorAll('.selected');
+  
+  selected.forEach((element) => {
+    element.classList.remove('selected');
+  });
+}
+
 
 // Add event listener to grid.
 grid.addEventListener('click', (event) => {
@@ -81,7 +98,6 @@ grid.addEventListener('click', (event) => {
         // Asssing first guess.
         firstGuess = clicked.dataset.name;
         clicked.classList.add('selected');
-        console.log("once again")
       } else {
         // Asssing second guess.
         secondGuess = clicked.dataset.name;
@@ -94,10 +110,13 @@ grid.addEventListener('click', (event) => {
         if (firstGuess === secondGuess) {
           // Run the match function.
           match();
+          resetGuesses();
+        } else {
+          resetGuesses();
         }
       }
+      previousSelected = clicked;
     }
-    previousSelected = clicked;
 })
 // .classList
 // .dataset.name
