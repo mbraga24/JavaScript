@@ -1,16 +1,14 @@
 var cardsArray = [
-  {    'name': 'bukowski',    'img': './images/bukowski.jpg',  },
-  {    'name': 'claude_monet',    'img': './images/claude_monet.jpeg',  },
-  {    'name': 'davinci',    'img': './images/davinci.jpg',  },
-  {    'name': 'walt_whitman',    'img': './images/walt_whitman.jpg', },
-  {    'name': 'vincent_van_gogh',    'img': './images/vincent_van_gogh.jpg',  },
-  {    'name': 'vladimir_nabokov',    'img': './images/vladimir_nabokov.jpg',  },
-  {    'name': 'salvador_dali',    'img': './images/salvador_dali.jpeg',  },
-  {    'name': 'rembrandt_van_rijn',    'img': './images/rembrandt_van_rijn.jpg',  },
-  {    'name': 'pablo_picasso',    'img': './images/pablo_picasso.jpg', },
-  {    'name': 'michelangelo',    'img': './images/michelangelo.jpg',  },
-  {    'name': 'frida_kahlo',    'img': './images/frida_kahlo.jpg',  },
-  {    'name': 'andy_warhol',    'img': './images/andy_warhol.jpg',  },
+  {    'name': 'bukowski',    'img': './images/bukowski.png',  },
+  {    'name': 'claude_monet',    'img': './images/claude_monet.png',  },
+  {    'name': 'davinci',    'img': './images/davinci.png',  },
+  {    'name': 'walt_whitman',    'img': './images/walt_whitman.png', },
+  {    'name': 'vincent_van_gogh',    'img': './images/vincent_van_gogh.png',  },
+  {    'name': 'salvador_dali',    'img': './images/salvador_dali.png',  },
+  {    'name': 'rembrandt_van_rijn',    'img': './images/rembrandt_van_rijn.png',  },
+  {    'name': 'pablo_picasso',    'img': './images/pablo_picasso.png', },
+  {    'name': 'frida_kahlo',    'img': './images/frida_kahlo.png',  },
+  {    'name': 'andy_warhol',    'img': './images/andy_warhol.png',  },
 ];
 
 // Duplicate cardsArray to create a match for each card.
@@ -23,6 +21,7 @@ gameGrid.sort(function() {
 
 // Grab the div with an id of game-board and assign to a variable game.
 let game = document.getElementById('game-board');
+let score = document.getElementById('score');
 
 // Create a section element and assign to a variable name grid.
 let grid = document.createElement('section');
@@ -54,7 +53,6 @@ gameGrid.forEach((element, index) => {
   grid.appendChild(card);
   card.appendChild(front);
   card.appendChild(back);
-
 });
 
 let firstGuess = '';
@@ -102,6 +100,7 @@ grid.addEventListener('click', (event) => {
     if (count < 2) {
       // Increment count by 1.
       count++;
+      score.textContent++;
 
       if (count === 1) {
         // Asssing first guess.
@@ -127,7 +126,3 @@ grid.addEventListener('click', (event) => {
       previousSelected = clicked;
     }
 })
-// .classList
-// .dataset.name
-// .backgroundImage = `url(${IMAGE})`
-// nodeName OR tagName

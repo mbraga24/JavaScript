@@ -4,13 +4,38 @@
   box-sizing: border-box;
 }
 
+#table-score {
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 25px 0 0 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+}
+
+#title {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
 body {
-  margin: 20px 0;
-  background: #071E35;
+  margin: 10px 0;
+  background: url('./images/background_image.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .grid {
-  max-width: 960px;
+  max-width: 836px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -49,7 +74,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 160px 150px;
+  background-size: 150px 150px;
 }
 
 .selected {
@@ -57,7 +82,7 @@ body {
 }
 
 .match .front {
-  background: #071E35 !important;
+  background: none;
 }
 
 @media only screen
@@ -65,10 +90,20 @@ body {
   only screen and (max-width: 667px),
   only screen and (max-width: 480px) {
 
+  .grid {
+    width: 100vw;
+    height: 100vh;
+  }
+
   .card,
   .back,
   .front {
     height: 100px;
     width: 100px;
   }
+
+  .back {
+    background-size: 100px 100px;
+  }
+
 }
