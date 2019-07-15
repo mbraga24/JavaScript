@@ -26,17 +26,20 @@ function initMap() {
   // Create Markers
   addMarkers({
     coords: {lat: -22.9694, lng: -43.1868},
-    imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-    content: '<h3>Copacabana</h3>'
+    imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+    // content: '<h3>Copacabana</h3>'
   });
+
   addMarkers({
     coords: {lat: -22.9847, lng: -43.1986},
-    imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-    content: '<h3>Ipanema</h3>'
+    imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+    // content: '<h3>Ipanema</h3>'
   });
 
   addMarkers({
     coords: {lat: -23.0004, lng: -43.3659}
+    // imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    // content: '<h3>Barra da Tijuca</h3>'
   });
 
   // Add Markers
@@ -45,22 +48,22 @@ function initMap() {
       position: props.coords,
       map: map,
     })
-    
+
     //Check icon
     if (props.imageIcon) {
       marker.setIcon(props.imageIcon)
     }
 
     // Check content
-    if (props.content) {
-      let infoWindow = google.maps.InfoWindow({
-        content: props.content
-      })
+    // if (props.content) {
+    //   let infoWindow = google.maps.InfoWindow({
+    //     content: props.content
+    //   })
 
-      marker.addEventListener('click', function() {
-        infoWindow.open(map, marker);
-      });
-    }
+    //   marker.addEventListener('click', function() {
+    //     infoWindow.open(map, marker);
+    //   });
+    // }
 
   }
 }
