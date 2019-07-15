@@ -31,16 +31,24 @@ function initMap() {
   });
   addMarkers({
     coords: {lat: -22.9847, lng: -43.1986},
-    imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+    imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content: '<h3>Ipanema</h3>'
   });
-  addMarkers({coords: {lat: -23.0004, lng: -43.3659}});
+
+  addMarkers({
+    coords: {lat: -23.0004, lng: -43.3659}
+  });
 
   // Add Markers
   function addMarkers(props) {
     let marker = new google.maps.Marker({
       position: props.coords,
       map: map,
-      icon: props.imageIcon
+      // icon: props.imageIcon
     })
+
+    if (props.imageIcon) {
+      marker.setIcon(props.imageIcon)
+    }
   }
 }
