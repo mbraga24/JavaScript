@@ -1,50 +1,39 @@
-// let mapElement = document.getElementById("map");
+// const mapElement = document.getElementById("map");
 
 function initMap() {
 
-  let mapOptions = {
+  const mapOptions = {
     zoom: 11,
     center: {lat: -22.9068, lng: -43.1729}
   };
 
-  let map = new google.maps.Map(document.getElementById("map"), mapOptions)
-
-  // let marker = new google.maps.Marker({
-  //   position: {lat: -22.9694, lng: -43.1868},
-  //   map: map,
-  //   icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-  // })
-
-  // let infoWindow = google.maps.InfoWindow({
-  //   content: '<h3>Copacabana</h3>'
-  // })
-
-  // marker.addListener('click', function() {
-  //   infoWindow.open(map, marker);
-  // });
+  const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  const arrayMarkers = [
+    {
+      coords: {lat: -22.9694, lng: -43.1868},
+      imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      // content: '<h3>Copacabana</h3>'
+    },
+    {
+      coords: {lat: -22.9847, lng: -43.1986},
+      imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      // content: '<h3>Ipanema</h3>'
+    },
+    {
+      coords: {lat: -23.0004, lng: -43.3659}
+      // imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+      // content: '<h3>Barra da Tijuca</h3>'
+    }
+  ]
 
   // Create Markers
-  addMarkers({
-    coords: {lat: -22.9694, lng: -43.1868},
-    imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-    // content: '<h3>Copacabana</h3>'
-  });
-
-  addMarkers({
-    coords: {lat: -22.9847, lng: -43.1986},
-    imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-    // content: '<h3>Ipanema</h3>'
-  });
-
-  addMarkers({
-    coords: {lat: -23.0004, lng: -43.3659}
-    // imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-    // content: '<h3>Barra da Tijuca</h3>'
-  });
-
+  arrayMarkers.forEach((marker) => {
+    addMarkers(marker)
+  })
+  
   // Add Markers
   function addMarkers(props) {
-    let marker = new google.maps.Marker({
+    const marker = new google.maps.Marker({
       position: props.coords,
       map: map,
     })
@@ -56,7 +45,7 @@ function initMap() {
 
     // Check content
     // if (props.content) {
-    //   let infoWindow = google.maps.InfoWindow({
+    //   const infoWindow = google.maps.InfoWindow({
     //     content: props.content
     //   })
 
