@@ -44,11 +44,23 @@ function initMap() {
     let marker = new google.maps.Marker({
       position: props.coords,
       map: map,
-      // icon: props.imageIcon
     })
-
+    
+    //Check icon
     if (props.imageIcon) {
       marker.setIcon(props.imageIcon)
     }
+
+    // Check content
+    if (props.content) {
+      let infoWindow = google.maps.InfoWindow({
+        content: props.content
+      })
+
+      marker.addEventListener('click', function() {
+        infoWindow.open(map, marker);
+      });
+    }
+
   }
 }
