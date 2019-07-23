@@ -8,26 +8,35 @@ function initMap() {
   };
 
   const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  // Listen to click on map
+  google.maps.event.addEventListener(map, 'click', 
+    function(event) {
+      // Add marker
+      addMarker({coords: event.latLng})
+  })
+
   const arrayMarkers = [
     {
       coords: {lat: -22.9694, lng: -43.1868},
-      imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-      // content: '<h3>Copacabana</h3>'
+      imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+      content: '<h3>Copacabana</h3>'
     },
     {
       coords: {lat: -22.9847, lng: -43.1986},
-      imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-      // content: '<h3>Ipanema</h3>'
+      imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+      content: '<h3>Ipanema</h3>'
     },
     {
-      coords: {lat: -23.0004, lng: -43.3659}
+      coords: {lat: -23.0004, lng: -43.3659},
       // imageIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-      // content: '<h3>Barra da Tijuca</h3>'
+      content: '<h3>Barra da Tijuca</h3>'
     }
   ]
 
-  // Create Markers
+  // Loop through markers
   arrayMarkers.forEach((marker) => {
+    // Create Markers
     addMarkers(marker)
   })
   
