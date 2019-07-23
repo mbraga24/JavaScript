@@ -1,6 +1,8 @@
-// SOURCE OF THIS EXERCISE
-// https://www.youtube.com/watch?v=Zxf1mnP5zcw
-
+/*
+  SOURCE OF THIS EXERCISE:
+  Google Maps JavaScript API Tutorial
+  https://www.youtube.com/watch?v=Zxf1mnP5zcw
+*/
 function initMap() {
 
   const mapOptions = {

@@ -1,6 +1,8 @@
-// SOURCE OF THIS EXERCISE
-// https://www.youtube.com/watch?v=xJubVipcHrM
-
+/*
+  SOURCE OF THIS EXERCISE
+  Track User location - Google Map JavaScript API - API Key
+  https://www.youtube.com/watch?v=xJubVipcHrM
+*/
 geolocation = navigator.geolocation;
 
 geolocation.getCurrentPosition(success, failure);
