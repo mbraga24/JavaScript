@@ -1,4 +1,4 @@
-// Source of this exercise:
+// SOURCE OF THIS EXERCISE
 // https://www.youtube.com/watch?v=xJubVipcHrM
 
 geolocation = navigator.geolocation;
