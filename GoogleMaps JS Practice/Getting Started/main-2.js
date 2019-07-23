@@ -1,4 +1,5 @@
-// const mapElement = document.getElementById("map");
+// SOURCE OF THIS EXERCISE
+// https://www.youtube.com/watch?v=Zxf1mnP5zcw
 
 function initMap() {
 
@@ -53,15 +54,15 @@ function initMap() {
     }
 
     // Check content
-    // if (props.content) {
-    //   const infoWindow = google.maps.InfoWindow({
-    //     content: props.content
-    //   })
+    if (props.content) {
+      const infoWindow = google.maps.InfoWindow({
+        content: props.content
+      })
 
-    //   marker.addEventListener('click', function() {
-    //     infoWindow.open(map, marker);
-    //   });
-    // }
+      marker.addEventListener('click', function() {
+        infoWindow.open(map, marker);
+      });
+    }
 
   }
 }
