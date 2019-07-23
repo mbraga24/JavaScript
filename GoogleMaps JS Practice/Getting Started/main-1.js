@@ -1,3 +1,6 @@
+// Source of this exercise:
+// https://www.youtube.com/watch?v=xJubVipcHrM
+
 geolocation = navigator.geolocation;
 
 geolocation.getCurrentPosition(success, failure);
@@ -22,6 +25,3 @@ function success(position) {
 }
 
 function failure() {}
-
-
-// https://www.youtube.com/watch?v=xJubVipcHrM
