@@ -2,10 +2,11 @@ let mapElement = document.getElementById("map");
 
 function initMap() {
   let mapOptions = {
-    center: {lat: 000000, lng: 000000}
+    center: {lat: 40.724220, lng: -73.911400},
+    zoom: 14,
     // disableDefaultUI: true
     // draggable: false
-    // mapTypeId: 'hybrid' // 'satellite' // 'roadmap'
+    // mapTypeId: 'hybrid'
   }
   let map = new google.maps.Map(mapElement, mapOptions);
   let infoWindow = new google.maps.InfoWindow;
