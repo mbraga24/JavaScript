@@ -1,0 +1,28 @@
+html, body {
+  height: 100%; 
+	margin: 0px; 
+	padding: 0px; 
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 32px;
+}
+.content {
+  height: 100%;
+}
+#page1 {
+  background-color: #4486F4;
+}
+#page2 {
+  background-color: #FFDD43;
+}
+#page3 {
+  background-color: #DB4539;
+}
+#map-container {
+  background-color: #ABB7B7;
+}
+#map_canvas {
+  height: 620px;
+  width: 60%;
+  margin: 0 auto;
+}
