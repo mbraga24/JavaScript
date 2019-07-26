@@ -1,4 +1,4 @@
-#Constructor#
+##Constructor##
 
 The Map() constructor creates a new map inside a specified HTML element (typically a <div> element).
 
@@ -15,7 +15,7 @@ MapOptions	:	A MapOptions object that holds the map initialization variables/opt
 
 
 
-#Methods#
+##Methods##
 
 
 getBounds()	:	Returns the south-west latitude/longitude and the north-east latitude/longitude of the current viewport
