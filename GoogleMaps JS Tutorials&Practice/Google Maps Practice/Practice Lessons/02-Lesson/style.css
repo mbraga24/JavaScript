@@ -1,0 +1,14 @@
+html, body{
+  font-family: Arial, sans-serif; 
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+#map_canvas {
+  height: 640px;
+  width:  560px;
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-radius: 5px; 
+  box-shadow: 0px 0px 8px #999;
+}
