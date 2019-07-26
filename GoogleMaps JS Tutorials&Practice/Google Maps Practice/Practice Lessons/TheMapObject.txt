@@ -1,4 +1,4 @@
-Constructor
+*Constructor*
 
 The Map() constructor creates a new map inside a specified HTML element (typically a <div> element).
 
@@ -15,7 +15,7 @@ MapOptions	:	A MapOptions object that holds the map initialization variables/opt
 
 
 
-Methods*
+*Methods*
 
 
 getBounds()	:	Returns the south-west latitude/longitude and the north-east latitude/longitude of the current viewport
@@ -33,7 +33,7 @@ setOptions(MapOptions)	:	Sets the variables/options for the map by the MapOption
 setZoom(number)	:	Sets the map's zoom level.
 
 
-Properties*
+*Properties*
 
 
 controls	:	Additional controls to attach to the map
@@ -41,7 +41,7 @@ controls	:	Additional controls to attach to the map
 mapTypes	:	A registry of MapType instances by string ID
 
 
-Events*
+*Events*
 
 
 bounds_changed	:	Fired when the viewport bounds have changed
@@ -53,3 +53,7 @@ click	:	Fired when the user clicks on the map
 tilesloaded	:	Fired when the visible tiles have finished loading
 
 zoom_changed	:	Fired when the map zoom property changes
+
+************************************************************************
+
+Source Udemy Courses: https://bit.ly/2Y6q5V8
