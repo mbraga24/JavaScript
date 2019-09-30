@@ -33,6 +33,8 @@ function init(results) {
   displayContent(results);
   // set the position of all the content.
   setWeatherContentPosition();
+
+  console.log(results)
 }
 
 let searchInput = document.getElementById("searchInput");
