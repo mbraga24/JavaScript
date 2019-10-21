@@ -1,4 +1,4 @@
-let appId = "80372582170757a441a237d9c1f38ad2";
+let appId = "NO_HERE";
 let units = "imperial";
 let searchMethod;
 let weatherDescriptionHeader = document.getElementById("weatherDescriptionHeader");
