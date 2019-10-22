@@ -51,3 +51,20 @@ function Songbird(type, color) {
     console.log(`${this.color} ${this.type} is singing.`);
   }
 }
+
+// Create (instantiate) a sparrow from class Bird.
+let sparrow = new Bird("sparrow", "gray");
+sparrow.fly();
+sparrow.walk();
+sparrow.lay_egg();
+// sparrow.sing(); // sparrow.sing is not a function
+
+// Create (instantiate) a parakeet from class Bird.
+let parakeet = new Bird("parakeet", "blue red");
+parakeet.fly();
+parakeet.walk();
+// parakeet.solve_puzzle(); // parakeet.solve_puzzle is not a function
+
+// Create (instatiate) a parakeet from class Bird.
+let raven = new Bird("raven", "black");
+raven.solve_puzzle();
