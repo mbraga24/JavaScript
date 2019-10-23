@@ -49,3 +49,18 @@ prv_counter.add(23)
 // Accessing the private variable.
 console.log(prv_counter.show())
 
+// Escopes
+
+let a = 1;
+function A() {
+  console.log(a)
+  a = 2;
+}
+
+a = 3;
+function B() {
+  console.log(a)
+}
+
+A();
+B();
