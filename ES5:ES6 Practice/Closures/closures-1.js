@@ -64,3 +64,20 @@ function B() {
 
 A();
 B();
+
+// 4) Standard set of functions for converting units of measures:
+
+function makeConverter(toUnit, factor, offset) {
+  offset = offset || 0;
+  return function(input) {
+      return [((offset+input)*factor).toFixed(2), toUnit].join(" ");  
+  }
+}   
+
+var milesToKm = makeConverter('km',1.60936);
+var poundsToKg = makeConverter('kg',0.45460);
+var farenheitToCelsius = makeConverter('degrees C',0.5556, -32);
+
+milesToKm(10); //"16.09 km"
+poundsToKg(2.5); //"1.14 kg"
+farenheitToCelsius(98); //"36.67 degrees C"
